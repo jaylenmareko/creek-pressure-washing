@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creek Pressure Washing — South-Central Kansas</title>
+  <meta name="description" content="Professional pressure washing for homes and businesses across South-Central Kansas. Driveways, siding, decks, gutters. Local · Licensed · Insured.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="logo-main">CREEK</span>
+      <span class="logo-sub">PRESSURE WASHING LLC</span>
+    </div>
+    <div class="nav-contact">
+      <a href="tel:6202914583">(620) 291-4583</a>
+      <span class="nav-dot">·</span>
+      <a href="mailto:us@creekpressurewashing.com">us@creekpressurewashing.com</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="#services">Residential</a>
+    <a href="#services">Commercial</a>
+    <a href="#hero">Get a Quote</a>
+    <a href="tel:6202914583" class="mobile-phone">(620) 291-4583</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <!-- decorative circles matching the flier -->
+  <div class="deco-circle deco-1"></div>
+  <div class="deco-circle deco-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+<h1 class="hero-title">
+        <span class="title-creek">CREEK</span>
+        <span class="title-pw">Pressure<br>Washing</span>
+      </h1>
+      <p class="hero-sub">
+        Professional exterior cleaning for homes and businesses across South-Central Kansas.
+      </p>
+      <div class="hero-contact">
+        <a href="tel:6202914583">(620) 291-4583</a>
+        <span class="hero-contact-sep">·</span>
+        <a href="mailto:us@creekpressurewashing.com">us@creekpressurewashing.com</a>
+      </div>
+      <div class="hero-badges">
+        <span>LOCAL</span>
+        <span class="badge-dot">·</span>
+        <span>LICENSED</span>
+        <span class="badge-dot">·</span>
+        <span>INSURED</span>
+      </div>
+    </div>
+
+    <div class="quote-form-card">
+      <div class="form-card-header">
+        <span class="form-card-eyebrow">We will contact you</span>
+      </div>
+
+      <!-- To receive submissions: add action="https://formspree.io/f/YOUR_ID" method="POST" -->
+      <form id="quote-form" class="quote-form">
+        <div class="form-group">
+          <label>When would you like to have the job done by?</label>
+          <div class="calendar">
+            <div class="cal-nav">
+              <button type="button" id="cal-prev" aria-label="Previous month">&#8592;</button>
+              <span id="cal-month-label"></span>
+              <button type="button" id="cal-next" aria-label="Next month">&#8594;</button>
+            </div>
+            <div class="cal-weekdays">
+              <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+          </div>
+        </div>
+        <div class="form-group" id="time-wrap" style="display:none;">
+          <label>Preferred Time *</label>
+          <div class="time-grid" id="time-grid"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(620) 555-0000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address *</label>
+          <input type="text" id="address" name="address" placeholder="123 Main St, Winfield, KS" required>
+        </div>
+        <div class="form-group">
+          <label for="details">Additional Details <span class="label-opt">Optional</span></label>
+          <textarea id="details" name="details" placeholder="Anything helpful — square footage, access notes, specific areas, etc."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Job Type *</label>
+          <div class="job-toggle">
+            <button type="button" class="job-btn active" data-val="Residential">Residential</button>
+            <button type="button" class="job-btn" data-val="Commercial">Commercial</button>
+          </div>
+          <input type="hidden" id="job-type" name="job_type" value="Residential">
+        </div>
+        <input type="hidden" id="input-date" name="job_done_by_date">
+        <input type="hidden" id="input-time" name="preferred_time">
+        <p class="form-error" id="form-error" style="display:none;">Please select a date and time before submitting.</p>
+        <button type="submit" class="btn-submit">GET A FREE QUOTE &#8594;</button>
+      </form>
+
+      <div class="form-success" id="form-success" style="display:none;">
+        <div class="success-icon">&#10003;</div>
+        <h3>Request Received!</h3>
+        <p id="success-msg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <polyline points="9 12 11 14 15 10"/>
+      </svg>
+      LICENSED &amp; INSURED
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      SERVING SOUTH-CENTRAL KANSAS
+    </div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2>WHAT WE DO</h2>
+      <div class="service-type-tags">
+        <span class="service-tag">Residential</span>
+        <span class="service-tag">Commercial</span>
+      </div>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card" id="service-driveways">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1720478664465-4dc6c66e4f6a?w=600&h=450&fit=crop&auto=format&q=80" alt="Driveway and concrete cleaning">
+        </div>
+        <div class="service-body">
+          <h3>Driveways &amp; Concrete</h3>
+          <p>Oil stains, mildew, tire marks removed from driveways, sidewalks, patios, loading areas, and more.</p>
+        </div>
+      </div>
+
+      <div class="service-card" id="service-siding">
+        <div class="service-img">
+          <!-- Replace: real exterior wash photo -->
+          <img src="https://loremflickr.com/600/450/house,siding,exterior?lock=2" alt="Building exterior cleaning">
+        </div>
+        <div class="service-body">
+          <h3>Siding &amp; Exterior</h3>
+          <p>Soft wash and pressure washing for vinyl, wood, brick, and stucco — homes, office buildings, and storefronts.</p>
+        </div>
+      </div>
+
+      <div class="service-card" id="service-decks">
+        <div class="service-img">
+          <!-- Replace: real deck photo -->
+          <img src="https://loremflickr.com/600/450/wooden,fence,yard?lock=55" alt="Deck and fence cleaning">
+        </div>
+        <div class="service-body">
+          <h3>Decks &amp; Fences</h3>
+          <p>Bring weathered wood and composite decking back to life — ready for sealing or staining season.</p>
+        </div>
+      </div>
+
+      <div class="service-card" id="service-gutters">
+        <div class="service-img">
+          <img src="https://www.statefarm.com/content/dam/sf-library/en-us/secure/legacy/simple-insights/482-step-by-step-guide-to-gutter-cleaning-wide.jpg" alt="Gutter cleaning">
+        </div>
+        <div class="service-body">
+          <h3>Gutters</h3>
+          <p>Flush out debris and buildup from gutters and downspouts on homes, warehouses, and commercial buildings.</p>
+        </div>
+      </div>
+
+      <div class="service-card" id="service-buildings">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1768368052673-64a526b7062c?w=600&h=450&fit=crop&auto=format&q=80" alt="Commercial building cleaning">
+        </div>
+        <div class="service-body">
+          <h3>Buildings &amp; Storefronts</h3>
+          <p>Keep your business looking sharp. We clean commercial exteriors, retail fronts, warehouses, and office buildings.</p>
+        </div>
+      </div>
+
+      <div class="service-card" id="service-parking">
+        <div class="service-img">
+          <!-- Replace: real parking lot photo -->
+          <img src="https://loremflickr.com/600/450/parking,concrete,lot?lock=6" alt="Parking lot cleaning">
+        </div>
+        <div class="service-body">
+          <h3>Parking Lots &amp; Surfaces</h3>
+          <p>Large-surface cleaning for parking lots, loading docks, and commercial concrete or asphalt.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-main">CREEK</span>
+          <span class="logo-sub">PRESSURE WASHING LLC</span>
+        </div>
+        <p>Local · Licensed · Insured<br>South-Central Kansas</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#service-driveways">Driveways &amp; Concrete</a></li>
+          <li><a href="#service-siding">Siding &amp; Exterior</a></li>
+          <li><a href="#service-decks">Decks &amp; Fences</a></li>
+          <li><a href="#service-gutters">Gutters</a></li>
+          <li><a href="#service-buildings">Buildings &amp; Storefronts</a></li>
+          <li><a href="#service-parking">Parking Lots &amp; Surfaces</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-links">
+          <a href="tel:6202914583">(620) 291-4583</a>
+          <a href="mailto:us@creekpressurewashing.com">us@creekpressurewashing.com</a>
+        </div>
+        <a href="#hero" class="footer-btn">GET A QUOTE</a>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      © 2025 Creek Pressure Washing LLC. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
