@@ -118,7 +118,7 @@ const form        = document.getElementById('quote-form');
 const formSuccess = document.getElementById('form-success');
 const formError   = document.getElementById('form-error');
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
   e.preventDefault();
   if (!selDate || !selTime) {
     formError.style.display = 'block';
@@ -126,11 +126,21 @@ form.addEventListener('submit', e => {
     return;
   }
   formError.style.display = 'none';
-  const dateStr = selDate.toLocaleDateString('en-US', {
-    weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
-  });
-  document.getElementById('success-msg').innerHTML =
-    `We will contact you within 24 hours.`;
+
+  const submitBtn = form.querySelector('.btn-submit');
+  submitBtn.textContent = 'Sending…';
+  submitBtn.disabled = true;
+
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/us@creekpressurewashing.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    await res.json();
+  } catch (_) {}
+
+  document.getElementById('success-msg').innerHTML = 'We will contact you within 24 hours.';
   form.style.display = 'none';
   formSuccess.style.display = 'block';
 });
