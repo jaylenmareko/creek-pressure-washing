@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 </head>
 <body>
 
@@ -70,56 +71,61 @@
         <span class="form-card-eyebrow">We will contact you</span>
       </div>
 
-      <!-- To receive submissions: add action="https://formspree.io/f/YOUR_ID" method="POST" -->
       <form id="quote-form" class="quote-form">
-        <div class="form-group">
-          <label>When would you like to have the job done by?</label>
-          <div class="calendar">
-            <div class="cal-nav">
-              <button type="button" id="cal-prev" aria-label="Previous month">&#8592;</button>
-              <span id="cal-month-label"></span>
-              <button type="button" id="cal-next" aria-label="Next month">&#8594;</button>
+        <div class="form-cols">
+          <div class="form-col-left">
+            <div class="form-group">
+              <label>When would you like to have the job done by?</label>
+              <div class="calendar">
+                <div class="cal-nav">
+                  <button type="button" id="cal-prev" aria-label="Previous month">&#8592;</button>
+                  <span id="cal-month-label"></span>
+                  <button type="button" id="cal-next" aria-label="Next month">&#8594;</button>
+                </div>
+                <div class="cal-weekdays">
+                  <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                </div>
+                <div class="cal-grid" id="cal-grid"></div>
+              </div>
             </div>
-            <div class="cal-weekdays">
-              <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+            <div class="form-group" id="time-wrap" style="display:none;">
+              <label>Preferred Time *</label>
+              <div class="time-grid" id="time-grid"></div>
             </div>
-            <div class="cal-grid" id="cal-grid"></div>
+          </div>
+          <div class="form-col-right">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="John Smith" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" placeholder="(620) 555-0000" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address">Address *</label>
+              <input type="text" id="address" name="address" placeholder="123 Main St, Winfield, KS" required>
+            </div>
+            <div class="form-group">
+              <label for="details">Additional Details <span class="label-opt">Optional</span></label>
+              <textarea id="details" name="details" placeholder="Anything helpful — square footage, access notes, specific areas, etc."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Job Type *</label>
+              <div class="job-toggle">
+                <button type="button" class="job-btn active" data-val="Residential">Residential</button>
+                <button type="button" class="job-btn" data-val="Commercial">Commercial</button>
+              </div>
+              <input type="hidden" id="job-type" name="job_type" value="Residential">
+            </div>
+            <input type="hidden" id="input-date" name="job_done_by_date">
+            <input type="hidden" id="input-time" name="preferred_time">
+            <p class="form-error" id="form-error" style="display:none;">Please select a date and time before submitting.</p>
+            <button type="submit" class="btn-submit">GET A FREE QUOTE &#8594;</button>
           </div>
         </div>
-        <div class="form-group" id="time-wrap" style="display:none;">
-          <label>Preferred Time *</label>
-          <div class="time-grid" id="time-grid"></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name *</label>
-            <input type="text" id="name" name="name" placeholder="John Smith" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone *</label>
-            <input type="tel" id="phone" name="phone" placeholder="(620) 555-0000" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="address">Address *</label>
-          <input type="text" id="address" name="address" placeholder="123 Main St, Winfield, KS" required>
-        </div>
-        <div class="form-group">
-          <label for="details">Additional Details <span class="label-opt">Optional</span></label>
-          <textarea id="details" name="details" placeholder="Anything helpful — square footage, access notes, specific areas, etc."></textarea>
-        </div>
-        <div class="form-group">
-          <label>Job Type *</label>
-          <div class="job-toggle">
-            <button type="button" class="job-btn active" data-val="Residential">Residential</button>
-            <button type="button" class="job-btn" data-val="Commercial">Commercial</button>
-          </div>
-          <input type="hidden" id="job-type" name="job_type" value="Residential">
-        </div>
-        <input type="hidden" id="input-date" name="job_done_by_date">
-        <input type="hidden" id="input-time" name="preferred_time">
-        <p class="form-error" id="form-error" style="display:none;">Please select a date and time before submitting.</p>
-        <button type="submit" class="btn-submit">GET A FREE QUOTE &#8594;</button>
       </form>
 
       <div class="form-success" id="form-success" style="display:none;">

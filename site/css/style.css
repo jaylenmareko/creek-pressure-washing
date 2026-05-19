@@ -130,7 +130,7 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
   padding: 56px var(--pad-x) 72px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.35fr;
   gap: 56px;
   align-items: start;
 }
@@ -564,12 +564,23 @@ a { text-decoration: none; color: inherit; }
 .quote-form-card {
   background: white;
   border-radius: 8px;
-  padding: 44px;
+  padding: 32px;
 }
 .quote-form {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+}
+.form-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.form-col-left,
+.form-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 .form-row {
   display: grid;
@@ -788,9 +799,10 @@ a { text-decoration: none; color: inherit; }
   .services-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .form-cols { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  .quote-form-card { padding: 28px 22px; }
+  .quote-form-card { padding: 24px 18px; }
   .trust-inner { gap: 16px; }
   .time-grid { grid-template-columns: repeat(2, 1fr); }
 }
