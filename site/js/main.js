@@ -143,9 +143,9 @@ form.addEventListener('submit', async e => {
       preferred_time:   form.querySelector('[name="preferred_time"]').value,
     };
 
-    const res = await fetch('https://formsubmit.co/ajax/us@creekpressurewashing.com', {
+    const res = await fetch('/api/quote', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
 
