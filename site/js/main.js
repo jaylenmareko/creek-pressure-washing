@@ -121,6 +121,7 @@ const formError   = document.getElementById('form-error');
 form.addEventListener('submit', async e => {
   e.preventDefault();
   if (!selDate || !selTime) {
+    formError.textContent = 'Please select a date and time before submitting.';
     formError.style.display = 'block';
     formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     return;
@@ -132,13 +133,32 @@ form.addEventListener('submit', async e => {
   submitBtn.disabled = true;
 
   try {
+    const payload = {
+      name:             form.querySelector('[name="name"]').value,
+      phone:            form.querySelector('[name="phone"]').value,
+      address:          form.querySelector('[name="address"]').value,
+      details:          form.querySelector('[name="details"]').value,
+      job_type:         form.querySelector('[name="job_type"]').value,
+      job_done_by_date: form.querySelector('[name="job_done_by_date"]').value,
+      preferred_time:   form.querySelector('[name="preferred_time"]').value,
+    };
+
     const res = await fetch('https://formsubmit.co/ajax/us@creekpressurewashing.com', {
       method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
     });
-    await res.json();
-  } catch (_) {}
+
+    const result = await res.json();
+    if (!res.ok || !result.success) throw new Error('Submission failed');
+
+  } catch (_) {
+    submitBtn.textContent = 'GET A FREE QUOTE →';
+    submitBtn.disabled = false;
+    formError.textContent = 'Something went wrong — please call (620) 291-4583 or email us@creekpressurewashing.com.';
+    formError.style.display = 'block';
+    return;
+  }
 
   document.getElementById('success-msg').innerHTML = 'We will contact you within 24 hours.';
   form.style.display = 'none';
