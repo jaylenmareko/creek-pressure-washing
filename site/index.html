@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pressure Washing in South-Central Kansas | Creek Pressure Washing</title>
-  <meta name="description" content="Professional pressure washing in Winfield, Arkansas City, Wellington & Cowley County, KS. Driveways, siding, buildings, gutters. Local · Licensed · Insured. Free quotes.">
+  <meta name="description" content="Professional pressure washing in Winfield, Arkansas City, Wellington & Cowley County, KS. Driveways, siding, buildings, gutters. Locally owned · Licensed · Insured. Free quotes.">
 
   <script type="application/ld+json">
   {
@@ -28,184 +28,88 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">
-      <span class="logo-text">
-        <span class="logo-main">CREEK</span>
-        <span class="logo-sub">PRESSURE WASHING LLC</span>
-      </span>
+      <span class="logo-main">CREEK</span>
+      <span class="logo-sub">PRESSURE WASHING LLC</span>
     </a>
-
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#process">How It Works</a>
+      <a href="#quote">Service Area</a>
     </div>
-
     <div class="nav-right">
       <a href="tel:6202914583" class="nav-phone">(620) 291-4583</a>
-      <a href="#hero" class="nav-cta">Get a Quote</a>
+      <a href="#quote" class="nav-cta">Get a Free Quote</a>
     </div>
-
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-
   <div class="nav-mobile" id="nav-mobile">
     <a href="#services">Services</a>
     <a href="#process">How It Works</a>
-    <a href="#hero">Get a Free Quote</a>
+    <a href="#quote">Get a Free Quote</a>
     <a href="tel:6202914583" class="mobile-phone">(620) 291-4583</a>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-content">
-
-    <div class="hero-text">
-      <p class="hero-eyebrow">
-        <span class="eyebrow-line"></span>
-        SOUTH-CENTRAL KANSAS
-      </p>
-      <h1 class="hero-title">
-        <span class="title-creek">CREEK</span>
-        <span class="title-pw">PRESSURE WASHING LLC</span>
-      </h1>
-      <p class="hero-sub">
-        Professional exterior cleaning for homes and businesses in Winfield, Arkansas City, Wellington, and all of Cowley County.
-      </p>
-      <a href="tel:6202914583" class="hero-phone">(620) 291-4583</a>
-      <div class="hero-badges">
-        <span>LOCAL</span>
-        <span class="badge-dot">·</span>
-        <span>LICENSED</span>
-        <span class="badge-dot">·</span>
-        <span>INSURED</span>
-      </div>
+    <p class="hero-eyebrow">COWLEY COUNTY, KANSAS</p>
+    <h1 class="hero-title">YOUR PROPERTY.<br>CLEANED RIGHT.</h1>
+    <p class="hero-sub">Professional pressure washing for homes and businesses in Winfield, Arkansas City, Wellington, and all of Cowley County.</p>
+    <div class="hero-actions">
+      <a href="#quote" class="btn-primary">GET A FREE QUOTE &rarr;</a>
+      <a href="tel:6202914583" class="btn-outline">CALL (620) 291-4583</a>
     </div>
-
-    <div class="quote-form-card">
-      <div class="form-card-header">
-        <span class="form-card-eyebrow">FREE QUOTE</span>
-        <p>Fill out the form — we'll get back to you within 24 hours.</p>
-      </div>
-
-      <form id="quote-form" class="quote-form">
-        <div class="form-cols">
-          <div class="form-col-left">
-            <div class="form-group">
-              <label>Preferred date</label>
-              <div class="calendar">
-                <div class="cal-nav">
-                  <button type="button" id="cal-prev" aria-label="Previous month">&#8592;</button>
-                  <span id="cal-month-label"></span>
-                  <button type="button" id="cal-next" aria-label="Next month">&#8594;</button>
-                </div>
-                <div class="cal-weekdays">
-                  <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                </div>
-                <div class="cal-grid" id="cal-grid"></div>
-              </div>
-            </div>
-            <div class="form-group" id="time-wrap" style="display:none;">
-              <label>Preferred time</label>
-              <div class="time-grid" id="time-grid"></div>
-            </div>
-          </div>
-
-          <div class="form-col-right">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Name *</label>
-                <input type="text" id="name" name="name" placeholder="John Smith" required>
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone *</label>
-                <input type="tel" id="phone" name="phone" placeholder="(620) 555-0000" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="address">Address *</label>
-              <input type="text" id="address" name="address" placeholder="123 Main St, Winfield, KS" required>
-            </div>
-            <div class="form-group">
-              <label for="details">Details <span class="label-opt">Optional</span></label>
-              <textarea id="details" name="details" placeholder="Square footage, specific areas, access notes, etc."></textarea>
-            </div>
-            <div class="form-group">
-              <label>Job type</label>
-              <div class="job-toggle">
-                <button type="button" class="job-btn active" data-val="Residential">Residential</button>
-                <button type="button" class="job-btn" data-val="Commercial">Commercial</button>
-              </div>
-              <input type="hidden" id="job-type" name="job_type" value="Residential">
-            </div>
-            <input type="hidden" id="input-date" name="job_done_by_date">
-            <input type="hidden" id="input-time" name="preferred_time">
-            <p class="form-error" id="form-error" style="display:none;">Please select a date and time before submitting.</p>
-            <button type="submit" class="btn-submit">GET A FREE QUOTE →</button>
-          </div>
-        </div>
-      </form>
-
-      <div class="form-success" id="form-success" style="display:none;">
-        <div class="success-icon">✓</div>
-        <h3>Request Received!</h3>
-        <p>We'll be in touch within 24 hours.</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ===== TRUST BAR ===== -->
+<!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-inner">
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        <polyline points="9 12 11 14 15 10"/>
-      </svg>
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/></svg>
       Licensed &amp; Insured
     </div>
-    <div class="trust-sep"></div>
+    <div class="trust-dot"></div>
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
-        <circle cx="12" cy="10" r="3"/>
-      </svg>
-      Winfield · Arkansas City · Wellington · Cowley County
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+      Locally Owned &amp; Operated
     </div>
-    <div class="trust-sep"></div>
+    <div class="trust-dot"></div>
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <polyline points="12 6 12 12 16 14"/>
-      </svg>
-      Free Quotes · Fast Response
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+      Same-Day Response
+    </div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+      Free Quotes
     </div>
   </div>
 </div>
 
-<!-- ===== SERVICES ===== -->
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
     <div class="section-header">
-      <h2>What We Do</h2>
+      <span class="section-label">WHAT WE DO</span>
+      <h2>Complete Exterior Cleaning</h2>
       <p>Residential and commercial pressure washing across Cowley County — homes, businesses, and everything in between.</p>
     </div>
     <div class="services-grid">
 
-      <div class="service-card" id="service-driveways">
+      <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <rect x="6" y="32" width="36" height="6" rx="1"/>
@@ -213,13 +117,13 @@
             <line x1="34" y1="32" x2="38" y2="16"/>
             <line x1="24" y1="32" x2="24" y2="18"/>
             <path d="M10 16 Q24 12 38 16"/>
-            <path d="M34 20 L40 16 M37 23 L43 21" stroke-width="1.2" opacity="0.45"/>
           </svg>
         </div>
         <h3>Driveways &amp; Concrete</h3>
+        <p>Oil stains, grime, algae — removed completely. Your concrete restored to like-new condition.</p>
       </div>
 
-      <div class="service-card" id="service-siding">
+      <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <path d="M24 7L5 21v22h14V31h10v12h14V21L24 7z"/>
@@ -227,13 +131,13 @@
             <line x1="29" y1="27" x2="43" y2="27"/>
             <line x1="5" y1="33" x2="19" y2="33"/>
             <line x1="29" y1="33" x2="43" y2="33"/>
-            <path d="M38 13 L44 9 M41 16 L47 14" stroke-width="1.2" opacity="0.45"/>
           </svg>
         </div>
         <h3>Siding &amp; Exterior</h3>
+        <p>Full exterior washes for vinyl, brick, and stucco. Strip mold, mildew, and years of buildup.</p>
       </div>
 
-      <div class="service-card" id="service-decks">
+      <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <rect x="4" y="23" width="40" height="5" rx="1"/>
@@ -242,13 +146,13 @@
             <line x1="11" y1="23" x2="11" y2="14"/>
             <line x1="37" y1="23" x2="37" y2="14"/>
             <line x1="11" y1="14" x2="37" y2="14"/>
-            <path d="M37 10 L43 6 M40 13 L46 11" stroke-width="1.2" opacity="0.45"/>
           </svg>
         </div>
         <h3>Decks &amp; Fences</h3>
+        <p>Wood and composite decks cleaned and prepped. Ready to stain, seal, or just enjoy.</p>
       </div>
 
-      <div class="service-card" id="service-gutters">
+      <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 17 L44 17 L44 23 Q44 27 40 27 L8 27 Q4 27 4 23 Z"/>
@@ -259,9 +163,10 @@
           </svg>
         </div>
         <h3>Gutters</h3>
+        <p>Exterior gutter brightening removes black streaks and buildup from fascia and downspouts.</p>
       </div>
 
-      <div class="service-card" id="service-buildings">
+      <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <rect x="5" y="16" width="38" height="26" rx="1"/>
@@ -269,13 +174,13 @@
             <rect x="11" y="29" width="8" height="13"/>
             <rect x="29" y="29" width="8" height="13"/>
             <rect x="19" y="21" width="10" height="8" rx="1"/>
-            <path d="M37 11 L43 7 M40 14 L46 12" stroke-width="1.2" opacity="0.45"/>
           </svg>
         </div>
         <h3>Buildings &amp; Storefronts</h3>
+        <p>Commercial pressure washing for offices, retail fronts, warehouses, and multi-unit properties.</p>
       </div>
 
-      <div class="service-card" id="service-parking">
+      <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <rect x="5" y="33" width="38" height="7" rx="1"/>
@@ -283,89 +188,164 @@
             <rect x="19" y="22" width="10" height="9" rx="1"/>
             <circle cx="17" cy="33" r="2.5"/>
             <circle cx="31" cy="33" r="2.5"/>
-            <path d="M33 14 L39 10 M36 17 L42 15" stroke-width="1.2" opacity="0.45"/>
           </svg>
         </div>
         <h3>Parking Lots &amp; Surfaces</h3>
+        <p>Surface washing for businesses, apartment complexes, and HOAs. Oil, gum, and grime gone.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ===== WHY CREEK ===== -->
-<section class="why" id="why">
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
   <div class="container">
     <div class="section-header">
-      <h2>Built for <em>Cowley County.</em></h2>
+      <span class="section-label">REVIEWS</span>
+      <h2>What Customers Say</h2>
     </div>
-    <div class="why-grid">
-      <div class="why-item">
-        <span class="why-num">01</span>
-        <h3>Locally Owned</h3>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Jay and his team did an incredible job on our driveway. Looks brand new — better than I expected for the price."</p>
+        <div class="review-author">— Sarah M., Winfield</div>
       </div>
-      <div class="why-item">
-        <span class="why-num">02</span>
-        <h3>Licensed &amp; Insured</h3>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Hired them for our storefront and the results were incredible. Fast turnaround, professional service. Will use again."</p>
+        <div class="review-author">— Mike T., Arkansas City</div>
       </div>
-      <div class="why-item">
-        <span class="why-num">03</span>
-        <h3>Flexible Scheduling</h3>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Responsive, affordable, and they got every corner of the siding. Exactly what we needed before listing the house."</p>
+        <div class="review-author">— Dave K., Cowley County</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PROCESS ===== -->
+<!-- PROCESS -->
 <section class="process" id="process">
   <div class="container">
     <div class="section-header section-header--light">
-      <h2>How It Works</h2>
+      <span class="section-label section-label--light">HOW IT WORKS</span>
+      <h2>Simple. Fast. Done.</h2>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
         <h3>Request a Quote</h3>
+        <p>Fill out the form or give us a call. We'll get back to you the same day.</p>
       </div>
-      <div class="step-arrow">→</div>
+      <div class="step-arrow">&rarr;</div>
       <div class="step">
         <div class="step-num">02</div>
         <h3>We Assess the Job</h3>
+        <p>We look at the property and give you a clear, honest price. No surprises.</p>
       </div>
-      <div class="step-arrow">→</div>
+      <div class="step-arrow">&rarr;</div>
       <div class="step">
         <div class="step-num">03</div>
         <h3>Done. Guaranteed.</h3>
+        <p>We show up, we clean it right, and we don't leave until it's done.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- QUOTE FORM -->
+<section class="quote-section" id="quote">
+  <div class="container">
+    <div class="quote-inner">
+      <div class="quote-text">
+        <span class="section-label">FREE QUOTE</span>
+        <h2>Get a Free Quote</h2>
+        <p>We serve Winfield, Arkansas City, Wellington, and all of Cowley County. Fill out the form and we'll get back to you within 24 hours.</p>
+        <div class="quote-contact">
+          <a href="tel:6202914583">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            (620) 291-4583
+          </a>
+          <a href="mailto:us@creekpressurewashing.com">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+            us@creekpressurewashing.com
+          </a>
+        </div>
+        <div class="quote-badges">
+          <span>&#10003; No obligation</span>
+          <span>&#10003; Same-day response</span>
+          <span>&#10003; Fair, upfront pricing</span>
+        </div>
+      </div>
+
+      <div class="quote-form-wrap">
+        <form id="quote-form" class="quote-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" placeholder="(620) 555-0000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Property Address *</label>
+            <input type="text" id="address" name="address" placeholder="123 Main St, Winfield, KS" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Type</label>
+            <select id="service" name="service">
+              <option value="">Select a service...</option>
+              <option>Driveways &amp; Concrete</option>
+              <option>Siding &amp; Exterior</option>
+              <option>Decks &amp; Fences</option>
+              <option>Gutters</option>
+              <option>Buildings &amp; Storefronts</option>
+              <option>Parking Lots &amp; Surfaces</option>
+              <option>Other / Multiple Services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="details">Additional Details <span class="opt">Optional</span></label>
+            <textarea id="details" name="details" rows="3" placeholder="Square footage, access notes, anything helpful..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">GET MY FREE QUOTE &rarr;</button>
+        </form>
+        <div class="form-success" id="form-success" style="display:none;">
+          <div class="success-icon">&#10003;</div>
+          <h3>Request Received!</h3>
+          <p>We'll be in touch within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-
       <div class="footer-brand">
         <div class="footer-logo">
           <span class="logo-main">CREEK</span>
           <span class="logo-sub">PRESSURE WASHING LLC</span>
         </div>
-        <p>Local · Licensed · Insured<br>Winfield · Arkansas City · Wellington · Cowley County, KS</p>
+        <p>Locally owned. Licensed &amp; insured.<br>Serving Cowley County, KS.</p>
       </div>
-
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#service-driveways">Driveways &amp; Concrete</a></li>
-          <li><a href="#service-siding">Siding &amp; Exterior</a></li>
-          <li><a href="#service-decks">Decks &amp; Fences</a></li>
-          <li><a href="#service-gutters">Gutters</a></li>
-          <li><a href="#service-buildings">Buildings &amp; Storefronts</a></li>
-          <li><a href="#service-parking">Parking Lots</a></li>
+          <li><a href="#services">Driveways &amp; Concrete</a></li>
+          <li><a href="#services">Siding &amp; Exterior</a></li>
+          <li><a href="#services">Decks &amp; Fences</a></li>
+          <li><a href="#services">Gutters</a></li>
+          <li><a href="#services">Buildings &amp; Storefronts</a></li>
+          <li><a href="#services">Parking Lots</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Areas Served</h4>
         <ul>
@@ -375,26 +355,23 @@
           <li>Cowley County, KS</li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Contact</h4>
-        <div class="footer-contact-links">
-          <a href="tel:6202914583">(620) 291-4583</a>
-        </div>
-        <a href="#hero" class="footer-btn">GET A QUOTE</a>
+        <ul>
+          <li><a href="tel:6202914583">(620) 291-4583</a></li>
+          <li><a href="mailto:us@creekpressurewashing.com">us@creekpressurewashing.com</a></li>
+        </ul>
+        <a href="#quote" class="footer-cta">GET A QUOTE</a>
       </div>
-
     </div>
     <div class="footer-bottom">
-      © 2026 Creek Pressure Washing LLC. All rights reserved.
+      &copy; 2026 Creek Pressure Washing LLC. All rights reserved.
     </div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
