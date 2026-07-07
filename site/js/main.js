@@ -46,6 +46,17 @@ form.addEventListener('submit', async e => {
   formSuccess.style.display = 'block';
 });
 
+// Scroll animations
+const animObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      animObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
