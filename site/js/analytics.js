@@ -1,6 +1,6 @@
 // GA4 Analytics — Creek Pressure Washing LLC
 // Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com
-const GA_ID = 'G-XXXXXXXXXX';
+const GA_ID = 'G-SE1M43S099';
 
 (function () {
   const s = document.createElement('script');
