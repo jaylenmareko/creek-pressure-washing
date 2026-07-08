@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://creekpressurewashing.com/sitemap.xml
