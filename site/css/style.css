@@ -930,3 +930,55 @@ body {
   .trust-inner { gap: 10px 22px; justify-content: center; }
   .quote-form-wrap { padding: 28px 20px; }
 }
+
+/* === HERO TRUST MICRO-COPY === */
+.hero-trust {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* === FORM REASSURANCE === */
+.form-reassurance {
+  font-size: 12px;
+  color: var(--gray);
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* === STICKY MOBILE CALL BAR === */
+.sticky-call-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--blue);
+  padding: 0;
+  box-shadow: 0 -2px 16px rgba(29,110,245,0.35);
+}
+.sticky-call-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 16px;
+  min-height: 54px;
+}
+.sticky-call-bar a:active { background: var(--blue-dark); }
+
+@media (max-width: 640px) {
+  .sticky-call-bar { display: block; }
+  body { padding-bottom: 54px; }
+}

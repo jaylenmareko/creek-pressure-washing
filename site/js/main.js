@@ -44,6 +44,7 @@ form.addEventListener('submit', async e => {
 
   form.style.display = 'none';
   formSuccess.style.display = 'block';
+  if (window.trackEvent) window.trackEvent('quote_form_submitted');
 });
 
 // Scroll animations
@@ -56,6 +57,20 @@ const animObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
 document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
+
+// Phone click tracking
+document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+  a.addEventListener('click', () => {
+    if (window.trackEvent) window.trackEvent('phone_click');
+  });
+});
+
+// Hero CTA tracking
+document.querySelectorAll('.btn-primary').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (window.trackEvent) window.trackEvent('cta_clicked', { button_text: btn.textContent.trim() });
+  });
+});
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
