@@ -1,27 +1,72 @@
 #!/usr/bin/env python3
 """
 Creek Pressure Washing — South-Central Kansas Business Scraper
-Scrapes Yellow Pages for local businesses, then visits their sites for emails.
-Output: outreach/data/leads-YYYY-MM-DD.csv
+Uses Yelp Fusion API (free, 500 req/day) to find local businesses,
+then visits each business website to scrape contact emails.
 
-Usage:
-    pip install requests beautifulsoup4
-    python scrape_businesses.py
+Setup (one-time):
+  1. Go to https://www.yelp.com/developers → Create App → copy API key
+  2. Set env var:  set YELP_API_KEY=your_key_here
+  3. pip install requests beautifulsoup4
+  4. python scrape_businesses.py
+
+Output: outreach/data/leads-YYYY-MM-DD.csv
 """
 
-import requests
+import os
 import re
 import csv
 import time
-import os
 from datetime import date
-from urllib.parse import quote_plus
+from urllib.parse import urljoin
 
+import requests
 from bs4 import BeautifulSoup
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-HEADERS = {
+YELP_API_KEY = os.environ.get("YELP_API_KEY", "")
+YELP_SEARCH_URL = "https://api.yelp.com/v3/businesses/search"
+
+CITIES = [
+    "Winfield, KS",
+    "Arkansas City, KS",
+    "Wellington, KS",
+    "Mulvane, KS",
+    "Derby, KS",
+    "Haysville, KS",
+    "Augusta, KS",
+    "El Dorado, KS",
+    "Caldwell, KS",
+    "Burden, KS",
+    "Udall, KS",
+]
+
+# Commercial categories — highest value for pressure washing
+CATEGORIES = [
+    "restaurants",
+    "auto_dealers",
+    "propertymgmt",
+    "hotelstravel",
+    "servicestations",
+    "autorepair",
+    "religiousorgs",
+    "grocery",
+    "shoppingcenters",
+    "industrialdesign",
+    "storage",
+    "banks",
+    "veterinarians",
+    "medcenters",
+    "funeralservices",
+    "carwash",
+    "laundryservices",
+    "contractors",
+    "landscaping",
+    "realestatesvcs",
+]
+
+BROWSER_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) "
         "Gecko/20100101 Firefox/124.0"
@@ -29,44 +74,6 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.5",
 }
-
-CITIES = [
-    "Winfield KS",
-    "Arkansas City KS",
-    "Wellington KS",
-    "Mulvane KS",
-    "Derby KS",
-    "Haysville KS",
-    "Augusta KS",
-    "El Dorado KS",
-    "Caldwell KS",
-    "Burden KS",
-    "Udall KS",
-]
-
-# Commercial categories = highest value for pressure washing
-CATEGORIES = [
-    "restaurants",
-    "auto dealers",
-    "car dealerships",
-    "property management",
-    "apartment complexes",
-    "shopping centers",
-    "retail stores",
-    "hotels motels",
-    "churches",
-    "gas stations",
-    "auto repair shops",
-    "grocery stores",
-    "industrial buildings",
-    "manufacturing",
-    "storage facilities",
-    "office buildings",
-    "banks",
-    "veterinary clinics",
-    "medical offices",
-    "funeral homes",
-]
 
 EMAIL_RE = re.compile(
     r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}",
@@ -76,14 +83,14 @@ EMAIL_RE = re.compile(
 JUNK_DOMAINS = {
     "example.com", "sentry.io", "wixpress.com", "squarespace.com",
     "wordpress.com", "shopify.com", "amazonaws.com", "googleapis.com",
-    "schema.org", "w3.org", "openssl.org", "apple.com", "google.com",
+    "schema.org", "w3.org", "apple.com", "google.com",
     "facebook.com", "instagram.com", "twitter.com", "yelp.com",
     "yellowpages.com", "mapquest.com", "tripadvisor.com",
 }
 
 CONTACT_PATHS = [
-    "/contact", "/contact-us", "/contactus", "/reach-us",
-    "/about", "/about-us", "/aboutus", "/info",
+    "/contact", "/contact-us", "/contactus",
+    "/about", "/about-us", "/reach-us", "/info",
 ]
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -92,23 +99,19 @@ OUTPUT_FILE = os.path.join(OUTPUT_DIR, f"leads-{date.today()}.csv")
 
 CSV_FIELDS = [
     "business_name", "category", "city", "address",
-    "phone", "website", "emails", "source",
+    "phone", "website", "emails", "yelp_url",
 ]
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def get_page(url, timeout=12):
     try:
-        r = requests.get(url, headers=HEADERS, timeout=timeout)
+        r = requests.get(url, headers=BROWSER_HEADERS, timeout=timeout)
         if r.status_code == 200:
             return r
     except Exception:
         pass
     return None
-
-
-def clean_email(e):
-    return e.lower().strip().rstrip(".")
 
 
 def is_junk_email(e):
@@ -125,7 +128,7 @@ def is_junk_email(e):
 def extract_emails(html):
     found = set()
     for e in EMAIL_RE.findall(html):
-        e = clean_email(e)
+        e = e.lower().strip().rstrip(".")
         if not is_junk_email(e):
             found.add(e)
     return found
@@ -138,78 +141,97 @@ def scrape_site_for_emails(url):
     emails = set()
     base = url.rstrip("/")
 
-    # Homepage
     r = get_page(base)
     if r:
         emails |= extract_emails(r.text)
 
-    # Contact / about pages
     for path in CONTACT_PATHS:
-        if emails:  # Stop once we have something
+        if emails:
             break
         r = get_page(base + path)
         if r:
             emails |= extract_emails(r.text)
-        time.sleep(0.3)
+        time.sleep(0.25)
 
     return emails
 
-# ── Yellow Pages Scraper ──────────────────────────────────────────────────────
+# ── Yelp API ──────────────────────────────────────────────────────────────────
 
-def scrape_yellowpages(category, city, max_pages=3):
-    results = []
+def yelp_search(category, city, offset=0):
+    headers = {"Authorization": f"Bearer {YELP_API_KEY}"}
+    params = {
+        "categories": category,
+        "location": city,
+        "limit": 50,
+        "offset": offset,
+    }
+    try:
+        r = requests.get(YELP_SEARCH_URL, headers=headers, params=params, timeout=15)
+        if r.status_code == 200:
+            return r.json()
+        else:
+            print(f"    Yelp error {r.status_code}: {r.text[:200]}")
+    except Exception as e:
+        print(f"    Request failed: {e}")
+    return None
 
-    for page in range(1, max_pages + 1):
-        url = (
-            "https://www.yellowpages.com/search"
-            f"?search_terms={quote_plus(category)}"
-            f"&geo_location_terms={quote_plus(city)}"
-            f"&page={page}"
-        )
 
-        r = get_page(url)
-        if not r:
+def fetch_businesses(category, city):
+    businesses = []
+    offset = 0
+
+    while True:
+        data = yelp_search(category, city, offset=offset)
+        if not data:
             break
 
-        soup = BeautifulSoup(r.text, "html.parser")
-        listings = soup.select(".result")
-
-        if not listings:
+        batch = data.get("businesses", [])
+        if not batch:
             break
 
-        for listing in listings:
-            name_el = listing.select_one("a.business-name")
-            name = name_el.get_text(strip=True) if name_el else ""
-            if not name:
-                continue
+        for b in batch:
+            loc = b.get("location", {})
+            addr_parts = [
+                loc.get("address1", ""),
+                loc.get("city", ""),
+                loc.get("state", ""),
+                loc.get("zip_code", ""),
+            ]
+            address = ", ".join(p for p in addr_parts if p)
 
-            phone_el = listing.select_one(".phones")
-            phone = phone_el.get_text(strip=True) if phone_el else ""
-
-            addr_el = listing.select_one(".adr")
-            address = addr_el.get_text(" ", strip=True) if addr_el else ""
-
-            site_el = listing.select_one("a.track-visit-website")
-            website = site_el.get("href", "") if site_el else ""
-
-            results.append({
-                "business_name": name,
+            businesses.append({
+                "business_name": b.get("name", ""),
                 "category": category,
                 "city": city,
                 "address": address,
-                "phone": phone,
-                "website": website,
+                "phone": b.get("phone", ""),
+                "website": b.get("url", ""),   # Yelp URL; real site added later if available
                 "emails": "",
-                "source": "yellowpages",
+                "yelp_url": b.get("url", ""),
             })
 
-        time.sleep(1.5)
+        total = data.get("total", 0)
+        offset += len(batch)
+        if offset >= total or offset >= 1000:
+            break
 
-    return results
+        time.sleep(0.5)
+
+    return businesses
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
+    if not YELP_API_KEY:
+        print(
+            "\nNo YELP_API_KEY found.\n\n"
+            "Setup:\n"
+            "  1. https://www.yelp.com/developers → Create App → copy API key\n"
+            "  2. In this terminal: set YELP_API_KEY=your_key_here\n"
+            "  3. Run this script again.\n"
+        )
+        return
+
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     leads = []
@@ -218,37 +240,37 @@ def main():
     total = len(CITIES) * len(CATEGORIES)
     done = 0
 
-    print(f"Scraping {len(CITIES)} cities x {len(CATEGORIES)} categories ({total} combos)...\n")
+    print(f"Scraping {len(CITIES)} cities x {len(CATEGORIES)} categories...\n")
 
     for city in CITIES:
         for cat in CATEGORIES:
             done += 1
-            print(f"[{done}/{total}] {city} — {cat}")
-            results = scrape_yellowpages(cat, city)
-            new = 0
-            for r in results:
-                key = (r["business_name"].lower().strip(), r["city"])
+            print(f"[{done}/{total}] {city} — {cat}", end="", flush=True)
+            businesses = fetch_businesses(cat, city)
+            new_count = 0
+            for b in businesses:
+                key = (b["business_name"].lower().strip(), b["city"])
                 if key not in seen:
                     seen.add(key)
-                    leads.append(r)
-                    new += 1
-            if new:
-                print(f"  +{new} new ({len(leads)} total)")
-            time.sleep(0.8)
+                    leads.append(b)
+                    new_count += 1
+            print(f"  +{new_count}")
+            time.sleep(0.3)
 
-    print(f"\nFound {len(leads)} unique businesses.")
-    print("Scraping websites for emails...\n")
+    print(f"\n{len(leads)} unique businesses found.")
+    print("Visiting websites for emails...\n")
 
     for i, lead in enumerate(leads):
-        if lead["website"]:
-            print(f"[{i+1}/{len(leads)}] {lead['business_name']}  {lead['website']}")
-            emails = scrape_site_for_emails(lead["website"])
+        website = lead.get("website", "")
+        # Skip yelp URLs — visit actual business site
+        if website and "yelp.com" not in website:
+            print(f"[{i+1}/{len(leads)}] {lead['business_name']}")
+            emails = scrape_site_for_emails(website)
             lead["emails"] = " | ".join(sorted(emails))
             if emails:
                 print(f"  -> {lead['emails']}")
-            time.sleep(0.4)
+        time.sleep(0.3)
 
-    # Write CSV
     with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
         writer.writeheader()
@@ -256,8 +278,8 @@ def main():
 
     with_emails = sum(1 for l in leads if l["emails"])
     print(f"\nDone.")
-    print(f"  {len(leads)} businesses total")
-    print(f"  {with_emails} with email addresses ({round(with_emails/len(leads)*100) if leads else 0}%)")
+    print(f"  {len(leads)} businesses")
+    print(f"  {with_emails} with emails ({round(with_emails / len(leads) * 100) if leads else 0}%)")
     print(f"  Saved: {OUTPUT_FILE}")
 
 

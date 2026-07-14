@@ -10,3 +10,6 @@ credentials*.md
 credentials*.json
 secrets*.md
 secrets*.json
+
+# Scraped lead data — contains PII (emails, owner names)
+outreach/data/

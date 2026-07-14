@@ -2,64 +2,58 @@
 
 ---
 
-## Template A — Commercial / Property
+## Template A — Commercial / Property Management
 
-**Subject:** Pressure washing for [Business Name]
+**Subject:** Bid request — pressure washing for [Business Name]
 
 Hi [Name],
 
-I run Creek Pressure Washing out of [nearest city] — we handle commercial cleaning for businesses across South-Central Kansas.
+I'd like to place a bid for pressure washing services at [Business Name].
 
-If your parking lot, building exterior, or loading area could use a refresh, we'd love to give you a free estimate.
+We're Creek Pressure Washing, based in South-Central Kansas — we handle parking lots, building exteriors, driveways, and loading areas.
 
-Call or reply anytime — (620) 291-4583.
+I'll get you an estimate. Reply, call (620) 291-4583, or email jaylen@creekpressurewashing.com.
 
-— Creek Pressure Washing LLC
+— Jaylen, Creek Pressure Washing LLC
 
 ---
 
 ## Template B — Restaurant / Food Service
 
-**Subject:** Free estimate — exterior cleaning for [Business Name]
+**Subject:** Bid for exterior cleaning — [Business Name]
 
 Hi [Name],
 
-Creek Pressure Washing serves restaurants and food service businesses across South-Central Kansas.
+I'd like to place a bid for exterior cleaning at [Business Name].
 
-We handle dumpster pads, drive-throughs, entry walks, and building exteriors. Fast, licensed, insured.
+Creek Pressure Washing handles dumpster pads, entry walks, drive-throughs, and building fronts across South-Central Kansas.
 
-Free estimate — (620) 291-4583 or us@creekpressurewashing.com.
+Reply or call (620) 291-4583 — I'll get you a number fast.
+
+— Jaylen, Creek Pressure Washing LLC
 
 ---
 
-## Template C — Property Management / Apartments
+## Template C — Property Manager / Apartments
 
-**Subject:** Seasonal cleaning for your properties in [City]
-
-Hi [Name],
-
-We work with property managers across South-Central Kansas for driveway, parking lot, and building exterior cleaning between tenant turns and seasonally.
-
-Licensed and insured. Quick turnaround. Free quote at (620) 291-4583.
-
----
-
-## Template D — Residential Follow-Up (if applicable)
-
-**Subject:** Free pressure washing estimate — [City]
+**Subject:** Bid for pressure washing — [Property/Company Name]
 
 Hi [Name],
 
-Creek Pressure Washing is a local South-Central Kansas company offering free estimates on driveway, siding, deck, and gutter cleaning.
+I'd like to place a bid for pressure washing at your properties.
 
-No commitment — just a look. (620) 291-4583 or creekpressurewashing.com.
+Creek Pressure Washing does driveways, parking lots, and building exteriors — great fit for tenant turns and seasonal cleaning.
+
+Reply or call (620) 291-4583.
+
+— Jaylen, Creek Pressure Washing LLC
 
 ---
 
 ## Notes
-- Personalize [Name] and [Business Name] before sending
-- Use Template A for most commercial
-- Use Template B for any food/restaurant business
-- Use Template C for any property manager / apartment complex
-- Keep BCC off — send individually to avoid spam flags
-- Track sends in outreach/data/outreach-log.csv
+- Swap [Name] and [Business Name] before sending — keep it personal
+- Use A for general commercial
+- Use B for restaurants/food service
+- Use C for property managers and apartment complexes
+- Send individually — no BCC, no bulk
+- Log each send in outreach/data/outreach-log.csv
