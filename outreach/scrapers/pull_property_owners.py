@@ -3,6 +3,13 @@ Cowley County Property Owner Scraper
 Pulls residential property owner names + addresses from Beacon (Schneider Corp)
 Output: outreach/data/property-owners-cowley-county.csv
 
+NOT YET PORTED to Wichita metro (2026-07-27): BEACON_URL below (AppID/LayerID)
+is wired specifically to Cowley County's Beacon instance. Sedgwick/Butler
+County property records likely live on a different site entirely (possibly
+not Beacon/Schneider at all) — needs research before this script can target
+Wichita, Derby, Andover, etc. Do not just swap CITIES without confirming the
+records source.
+
 Requirements: pip install playwright && playwright install chromium
 Run: python outreach/scrapers/pull_property_owners.py
 """

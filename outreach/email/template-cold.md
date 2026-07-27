@@ -10,7 +10,7 @@ Hi [Name],
 
 I'd like to place a bid for pressure washing services at [Business Name].
 
-We're Creek Pressure Washing, based in South-Central Kansas — we handle parking lots, building exteriors, driveways, and loading areas.
+We're Creek Pressure Washing, based in the Wichita metro — we handle parking lots, building exteriors, driveways, and loading areas.
 
 I'll get you an estimate. Reply, call (620) 291-4583, or email jaylen@creekpressurewashing.com.
 
@@ -26,7 +26,7 @@ Hi [Name],
 
 I'd like to place a bid for exterior cleaning at [Business Name].
 
-Creek Pressure Washing handles dumpster pads, entry walks, drive-throughs, and building fronts across South-Central Kansas.
+Creek Pressure Washing handles dumpster pads, entry walks, drive-throughs, and building fronts across the Wichita metro.
 
 Reply or call (620) 291-4583 — I'll get you a number fast.
 

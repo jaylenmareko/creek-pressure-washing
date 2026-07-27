@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Creek Pressure Washing — South-Central Kansas Business Scraper
+Creek Pressure Washing — Wichita Metro Business Scraper
 Uses Yelp Fusion API (free, 500 req/day) to find local businesses,
 then visits each business website to scrape contact emails.
 
@@ -29,17 +29,14 @@ YELP_API_KEY = os.environ.get("YELP_API_KEY", "")
 YELP_SEARCH_URL = "https://api.yelp.com/v3/businesses/search"
 
 CITIES = [
-    "Winfield, KS",
-    "Arkansas City, KS",
-    "Wellington, KS",
-    "Mulvane, KS",
+    "Wichita, KS",
     "Derby, KS",
+    "Andover, KS",
+    "Park City, KS",
+    "Bel Aire, KS",
+    "Maize, KS",
     "Haysville, KS",
-    "Augusta, KS",
-    "El Dorado, KS",
-    "Caldwell, KS",
-    "Burden, KS",
-    "Udall, KS",
+    "Goddard, KS",
 ]
 
 # Commercial categories — highest value for pressure washing

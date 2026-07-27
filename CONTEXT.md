@@ -6,7 +6,7 @@
 |---|---|
 | **Stage** | Pre-launch — website not yet deployed |
 | **Done criteria** | Site live on Vercel, quote form connected to Formspree, first outreach sent |
-| **Next stage** | Local business outreach (South-Central Kansas) |
+| **Next stage** | Local business outreach (Wichita metro) |
 
 ---
 
@@ -15,7 +15,7 @@
 Local pressure washing business. Static website + quote form. Side project / services business.
 
 - **Name:** Creek Pressure Washing LLC
-- **Area:** South-Central Kansas
+- **Area:** Wichita metro, KS — Wichita, Derby, Andover, Park City, Bel Aire, Maize, Haysville, Goddard (repositioned from South-Central Kansas/Cowley County 2026-07-27; legal address/phone unchanged, still Winfield/620)
 - **Phone:** (620) 291-4583
 - **Email:** us@creekpressurewashing.com
 - **Services:** Driveways & Concrete, Siding & Exterior, Decks & Fences, Gutters

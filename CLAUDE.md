@@ -2,7 +2,7 @@
 
 ## Business
 - **Name:** Creek Pressure Washing LLC
-- **Area:** South-Central Kansas
+- **Area:** Wichita metro, KS — Wichita, Derby, Andover, Park City, Bel Aire, Maize, Haysville, Goddard (repositioned from South-Central Kansas/Cowley County 2026-07-27; legal address/phone unchanged, still Winfield/620)
 - **Phone:** (620) 291-4583
 - **Email:** us@creekpressurewashing.com
 - **Services:** Driveways & Concrete, Siding & Exterior, Decks & Fences, Gutters
@@ -15,7 +15,7 @@ Ship the website → connect quote form → start local business outreach
 - [ ] Website — built, needs real photos + Formspree form connection
 - [ ] Vercel deploy — pending
 - [ ] Quote form backend — needs Formspree account (free)
-- [ ] Outreach — not started
+- [x] Outreach — running: business + property-manager scrape/enrich/send pipeline, leads through 2026-07-07 (see `outreach/CONTEXT.md`)
 
 ## File Map
 
@@ -30,8 +30,10 @@ creek-pressure-washing/
 │   ├── js/main.js                   ← nav scroll, hamburger, form success state
 │   └── assets/images/               ← drop real photos here (see site/README.md)
 │
-├── outreach/                        ← lead scraping + email campaigns
-│   └── README.md                    ← placeholder — outreach not started yet
+├── outreach/                        ← lead scraping + email campaigns (active)
+│   ├── CONTEXT.md                   ← pipeline contract — inputs/process/outputs/human check
+│   ├── scrapers/                    ← scrape + enrich scripts, two tracks (businesses, property managers)
+│   └── data/                        ← dated lead CSVs, most recent date = current list
 │
 └── sessions/
     └── session.md                   ← session log

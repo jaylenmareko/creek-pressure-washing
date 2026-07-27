@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Creek Pressure Washing — Property Manager Scraper (Cowley County, KS)
-Uses Apify Google Maps Scraper to pull property managers from Winfield,
-Arkansas City, Wellington, and Cowley County area.
+Creek Pressure Washing — Property Manager Scraper (Wichita Metro, KS)
+Uses Apify Google Maps Scraper to pull property managers from Wichita,
+Derby, Andover, and the surrounding Sedgwick/Butler County area.
 
 Output: outreach/data/property-managers-YYYY-MM-DD.csv
 
@@ -24,14 +24,14 @@ ACTOR_ID = "nwua9Gu5YrADL7ZDj"  # compass/google-maps-scraper
 APIFY_BASE = "https://api.apify.com/v2"
 
 SEARCH_QUERIES = [
-    "property management Winfield KS",
-    "property management Arkansas City KS",
-    "property management Wellington KS",
-    "property manager Cowley County KS",
-    "apartment management Winfield KS",
-    "rental property management Winfield KS",
-    "real estate property management Cowley County KS",
-    "HOA management Cowley County KS",
+    "property management Wichita KS",
+    "property management Derby KS",
+    "property management Andover KS",
+    "property manager Sedgwick County KS",
+    "apartment management Wichita KS",
+    "rental property management Wichita KS",
+    "real estate property management Wichita KS",
+    "HOA management Wichita KS",
 ]
 
 OUTPUT_DIR = "outreach/data"
